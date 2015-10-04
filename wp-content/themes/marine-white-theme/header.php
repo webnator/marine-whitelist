@@ -161,6 +161,9 @@
 <div class="container-fluid" style="padding-left:0px;">
 	<div class='container'>
 		<div class="row">
+			<div class="col-md-12">
+				<?php putRevSlider("home-slider"); ?>
+			</div>
 			<div class="col-md-10 col-md-offset-1 col-sm-12">
 				<div class="row">
 
