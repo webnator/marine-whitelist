@@ -1,0 +1,361 @@
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,300,700);
+@import url('http://localhost:8888/marine-whitelist/wp-content/themes/marine-white-theme/css/wordpress_core.css');
+@import url('http://localhost:8888/marine-whitelist/wp-content/themes/marine-white-theme/css/elements.css');
+/*
+Color pallette http://www.paletton.com/#uid=63-0u0kUEJ7qGRPCSTJUutfTQmD
+*/
+body {
+  font-family: 'Raleway', Helvetica, sans-serif;
+  color: #036acd;
+  font-size: 15px;
+}
+.error-text {
+  margin-top: 50px;
+  text-align: right;
+}
+.post-link {
+  margin-bottom: 45px;
+  border-bottom: 1px solid rgba(1, 140, 255, 0.2);
+  padding-bottom: 5px;
+}
+.post-link .read-more {
+  color: #0065b7;
+}
+.post-link .read-more:hover {
+  color: #333;
+}
+.head-bbva {
+  background-color: #FFF;
+  width: 100%;
+  z-index: 999;
+  padding-bottom: 15px;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+a {
+  color: inherit;
+}
+.fixed-head-bbva {
+  position: fixed;
+  -webkit-box-shadow: 0px 3px 22px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 3px 22px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 22px -4px rgba(0, 0, 0, 0.75);
+}
+.carousel-caption {
+  background-color: rgba(0, 92, 146, 0.5);
+  bottom: auto !important;
+  font-size: 3em;
+  left: 49%;
+  padding-bottom: 30px;
+  padding-right: 20px;
+  right: -35px !important;
+  text-align: right;
+  top: 50%;
+  width: 40%;
+}
+.page-container {
+  margin-top: -1.1em;
+}
+.head-logo {
+  float: left;
+}
+.head-bar {
+  background: rgba(0, 0, 0, 0) linear-gradient(#0079c1, #00529b) repeat scroll 0 0;
+  float: left;
+  height: 4em;
+  /*min-width: 95.7em !important;
+    width: 100%;*/
+}
+.bloque-nav {
+  margin: 0 auto;
+  /*width: 96em;*/
+}
+.head-search {
+  margin-top: 0.8em;
+  position: relative;
+  float: right;
+}
+.head-search .search-icon {
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+.head-search .textbox {
+  border-radius: 5px;
+  box-sizing: content-box;
+  font-size: 1em;
+  font-weight: normal;
+  height: 2em;
+  padding-left: 0.357em;
+  padding-right: 1.786em;
+  position: absolute;
+  right: 0;
+  transition-duration: 0.35s;
+  transition-property: width;
+  width: 2em;
+  box-shadow: 0 2px 2px #d6d6d6 inset;
+  color: #71777f;
+  font-family: arial,sans-serif;
+  border: 1px solid #e8e8e6;
+  line-height: 2.333em;
+}
+.head-search .textbox:focus {
+  width: 11em;
+  background-color: #fffff5;
+  border: 1px solid #e8e8e6;
+  box-shadow: 0 0 0 2px #def4fb, 0 2px 2px #d6d6d6 inset;
+  color: #71777f;
+  outline: 0 none;
+}
+.bloque-nav ul {
+  list-style: outside none none;
+  padding: 0;
+  margin: 0;
+  vertical-align: baseline;
+}
+.bloque-nav ul li {
+  float: left;
+  text-align: center;
+  background: transparent url("http://localhost:8888/marine-whitelist/wp-content/themes/marine-white-theme/img/separador-menu.png") no-repeat scroll right top;
+}
+.bloque-nav ul li:hover {
+  background: #005098 none repeat scroll 0 0;
+}
+.bloque-nav ul li .enlace {
+  border-radius: 5px 0 0 5px;
+  font-size: 1em;
+  padding: 0;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  margin: 0 0.077em 0 0;
+  padding: 0 1.385em;
+  transition-duration: 1.05s;
+  transition-property: padding;
+  box-sizing: content-box;
+  height: 1.4em;
+  padding: 1.2em 0;
+  vertical-align: middle;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.bloque-nav ul li.inicio {
+  width: 5em;
+}
+.bloque-nav ul li.first {
+  margin-left: 0px !important;
+}
+.head-title {
+  color: #009ee5;
+  font-size: 1.5em;
+  text-align: right;
+  margin-top: 0.8em;
+}
+.head-menu {
+  list-style-type: none;
+  margin-top: 3.7em;
+  padding-left: 0px;
+}
+.head-menu li {
+  display: inline-block;
+  color: #71777f;
+  font-weight: 400;
+  font-size: 1em;
+  /*font-family: "BBVA Web Light";*/
+  cursor: pointer;
+}
+.head-menu li + li::before {
+  content: " | ";
+}
+.head-menu li a:hover {
+  color: #004c99;
+  text-decoration: none;
+}
+.head-btn-container {
+  margin-top: 0.3em;
+  text-align: right;
+}
+.icon-header-btn {
+  font-size: 0.8em;
+  font-weight: normal;
+  margin-right: 2px;
+  margin-top: 0;
+}
+.btn {
+  color: #fff !important;
+  display: inline-block;
+  height: 22px;
+  margin: 0;
+  padding: 0px 12px;
+  text-align: center;
+}
+.btn:hover {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  transition-duration: 0.2s;
+  transition-property: box-shadow;
+}
+.btn-primary {
+  background: #0079c1;
+  background: -moz-linear-gradient(top, #0079c1 0%, #00559c 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #0079c1), color-stop(100%, #00559c));
+  background: -webkit-linear-gradient(top, #0079c1 0%, #00559c 100%);
+  background: -o-linear-gradient(top, #0079c1 0%, #00559c 100%);
+  background: -ms-linear-gradient(top, #0079c1 0%, #00559c 100%);
+  background: linear-gradient(to bottom, #0079c1 0%, #00559c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0079c1', endColorstr='#00559c', GradientType=0);
+  border: 1px solid #00559d;
+}
+.btn-primary:hover {
+  background: #00559c;
+  background: -moz-linear-gradient(top, #00559c 0%, #0079c1 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #00559c), color-stop(100%, #0079c1));
+  background: -webkit-linear-gradient(top, #00559c 0%, #0079c1 100%);
+  background: -o-linear-gradient(top, #00559c 0%, #0079c1 100%);
+  background: -ms-linear-gradient(top, #00559c 0%, #0079c1 100%);
+  background: linear-gradient(to bottom, #00559c 0%, #0079c1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00559c', endColorstr='#0079c1', GradientType=0);
+}
+.btn-success {
+  background: #7ab32c;
+  background: -moz-linear-gradient(top, #7ab32c 0%, #73a82a 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #7ab32c), color-stop(100%, #73a82a));
+  background: -webkit-linear-gradient(top, #7ab32c 0%, #73a82a 100%);
+  background: -o-linear-gradient(top, #7ab32c 0%, #73a82a 100%);
+  background: -ms-linear-gradient(top, #7ab32c 0%, #73a82a 100%);
+  background: linear-gradient(to bottom, #7ab32c 0%, #73a82a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7ab32c', endColorstr='#73a82a', GradientType=0);
+  border: 1px solid #72a629;
+}
+.btn-success:hover {
+  background: #73a82a;
+  background: -moz-linear-gradient(top, #73a82a 0%, #7ab32c 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #73a82a), color-stop(100%, #7ab32c));
+  background: -webkit-linear-gradient(top, #73a82a 0%, #7ab32c 100%);
+  background: -o-linear-gradient(top, #73a82a 0%, #7ab32c 100%);
+  background: -ms-linear-gradient(top, #73a82a 0%, #7ab32c 100%);
+  background: linear-gradient(to bottom, #73a82a 0%, #7ab32c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#73a82a', endColorstr='#7ab32c', GradientType=0);
+}
+.btn-warning {
+  background: #fba726;
+  background: -moz-linear-gradient(top, #fba726 0%, #f68a1e 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #fba726), color-stop(100%, #f68a1e));
+  background: -webkit-linear-gradient(top, #fba726 0%, #f68a1e 100%);
+  background: -o-linear-gradient(top, #fba726 0%, #f68a1e 100%);
+  background: -ms-linear-gradient(top, #fba726 0%, #f68a1e 100%);
+  background: linear-gradient(to bottom, #fba726 0%, #f68a1e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fba726', endColorstr='#f68a1e', GradientType=0);
+  border: 1px solid #f6891e;
+}
+.btn-warning:hover {
+  background: #f68a1e;
+  background: -moz-linear-gradient(top, #f68a1e 0%, #fba726 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #f68a1e), color-stop(100%, #fba726));
+  background: -webkit-linear-gradient(top, #f68a1e 0%, #fba726 100%);
+  background: -o-linear-gradient(top, #f68a1e 0%, #fba726 100%);
+  background: -ms-linear-gradient(top, #f68a1e 0%, #fba726 100%);
+  background: linear-gradient(to bottom, #f68a1e 0%, #fba726 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f68a1e', endColorstr='#fba726', GradientType=0);
+}
+.btn-error {
+  background: #e659a2;
+  background: -moz-linear-gradient(top, #e659a2 0%, #c4136c 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #e659a2), color-stop(100%, #c4136c));
+  background: -webkit-linear-gradient(top, #e659a2 0%, #c4136c 100%);
+  background: -o-linear-gradient(top, #e659a2 0%, #c4136c 100%);
+  background: -ms-linear-gradient(top, #e659a2 0%, #c4136c 100%);
+  background: linear-gradient(to bottom, #e659a2 0%, #c4136c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e659a2', endColorstr='#c4136c', GradientType=0);
+  border: 1px solid #ad1162;
+}
+.btn-error:hover {
+  background: #c4136c;
+  background: -moz-linear-gradient(top, #c4136c 0%, #e659a2 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #c4136c), color-stop(100%, #e659a2));
+  background: -webkit-linear-gradient(top, #c4136c 0%, #e659a2 100%);
+  background: -o-linear-gradient(top, #c4136c 0%, #e659a2 100%);
+  background: -ms-linear-gradient(top, #c4136c 0%, #e659a2 100%);
+  background: linear-gradient(to bottom, #c4136c 0%, #e659a2 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c4136c', endColorstr='#e659a2', GradientType=0);
+}
+/*  Footer   */
+.footer-bbva {
+  width: 100%;
+  z-index: 999;
+  color: #777;
+  font-size: 0.85em;
+}
+.row-footer {
+  background-color: #EEE;
+}
+.bloque-footer {
+  display: inline;
+  float: left;
+  margin: 0 auto;
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+.bloque-footer ul {
+  list-style: outside none none;
+  padding: 0;
+  margin: 0;
+  vertical-align: baseline;
+}
+.bloque-footer ul li {
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  float: left;
+  text-align: center;
+  background: transparent url("http://localhost:8888/marine-whitelist/wp-content/themes/marine-white-theme/img/top-nav-li-separator.gif") no-repeat scroll right top;
+  display: inline-block;
+}
+.bloque-footer ul li:hover {
+  text-decoration: underline;
+}
+.footer-bbva .disclaim {
+  text-align: right;
+  padding-top: 8px;
+}
+.widget-footer {
+  color: #777;
+  font-size: 1em;
+  padding-bottom: 15px;
+}
+.widget-footer .col {
+  border-left: 1px solid #CCC;
+}
+.widget-footer .col:first-of-type {
+  border-left: 0px !important;
+}
+.widget-footer li {
+  list-style: outside none none;
+}
+.widget-footer ul {
+  list-style: outside none none;
+  padding-left: 0px;
+}
+.widget-footer ul li {
+  list-style: outside none none;
+  margin-top: 5px;
+}
+.widget-footer ul li:hover {
+  color: #3d91cd;
+}
+.widget-footer a:hover {
+  color: #3d91cd;
+}
+.widget-footer h2 {
+  color: #333;
+  /*font-family: BBVA Web Medium;*/
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 19px;
+  width: 170px;
+}

@@ -1,0 +1,38 @@
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,300,700);
+@import url('http://localhost:8888/marine-whitelist/wp-content/themes/marine-white-theme/css/wordpress_core.css');
+@import url('http://localhost:8888/marine-whitelist/wp-content/themes/marine-white-theme/css/elements.css');
+/*
+Color pallette http://www.paletton.com/#uid=63-0u0kUEJ7qGRPCSTJUutfTQmD
+*/
+/* General styles */
+body {
+  font-family: 'Raleway', Helvetica, sans-serif;
+  color: #036acd;
+  font-size: 15px;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+a {
+  color: inherit;
+}
+img.navbar-logo {
+  width: 23%;
+}
+/* Bootstrap modified styles */
+.navbar {
+  min-height: 30px;
+  max-height: 30px;
+}
+a.navbar-brand {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 30px;
+}
+.nav > li > a {
+  height: 30px;
+}

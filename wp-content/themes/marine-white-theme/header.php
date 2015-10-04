@@ -2,223 +2,169 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
+<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.png" />
 
 
-<?php if ( get_theme_mod('bbva_page_title') ) : ?>
-	<title><?php echo get_theme_mod('bbva_page_title'); ?></title>
-<?php else : ?>
-	<title>BBVA Wordpress</title>
-<?php endif; ?> 
-
+<title> Marine Whitelist </title>
 
 
 <?php wp_head(); ?>
 
-<!-- <link rel="stylesheet" href="css/style.css" type="text/css"> -->
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="row">
+    	<div class="col-md-10 col-md-offset-1">
+
+    		<div class="col-xs-12 visible-xs visible-sm">
+    			<div class="row">
+    				<div class="col-xs-2">
+    					<button type="button" 
+    						class="btn btn-default btn-header header-toggler" 
+    						data-toggler-target="menuBox"
+    						aria-label="Left Align">
+							  <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+							</button>
+    				</div>
+    				<div class="col-xs-8" style="text-align:center;">
+
+    					<img 
+			      		class="navbar-logo"
+			      		src="<?php echo get_stylesheet_directory_uri(); ?>/img/MWL-Logo.png"/>
+
+    				</div>
+    				<div class="col-xs-2">
+    					<button type="button" 
+    						class="btn btn-default btn-header header-toggler"
+    						data-toggler-target="searchBox"
+    						aria-label="Left Align">
+							  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+							</button>
+    				</div>
+    			</div>
+    		</div>
+
+    		<div id="searchBox" class="mobile-box">
+    			<form class="" role="search" style="margin-bottom:0px;">
+		        <div class="col-xs-8">
+		          <input type="text" class="form-control" placeholder="Search">
+		        </div>
+		        <button type="submit" class="btn btn-default">
+		        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+		      </form>
+
+		      <span class="close-box-btn">x</span>
+    		</div>
+
+
+    		<div id="menuBox" class="mobile-box">
+    			<ul class="ul-menu-box">
+    				<li>About Us</li>
+    				<li>Categories</li>
+    				<li>Schedule</li>
+    				<li>My Account</li>
+    				<li class="highlight">Sign Up</li>
+
+    			</ul>
+
+
+		      <span class="close-box-btn">x</span>
+    		</div>
+
+ 				
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		      	<li class="">
+		      		<a href="#" class="list-logo">
+		      			<img 
+				      		class="navbar-logo"
+				      		src="<?php echo get_stylesheet_directory_uri(); ?>/img/MWL-Logo.png"/>
+		      		</a>
+		      	</li>
+		        <li class=""><a href="#">About Us <span class="sr-only">(current)</span></a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+		          	Categories</a>
+		          <div class="dropdown-menu dropdown-categories">
+		          	<div class="col-md-4">
+		          		Boat
+		          	</div>
+		          	<div class="col-md-4">
+		          		Boat
+		          	</div>
+		          	<div class="col-md-4">
+		          		Boat
+		          	</div>
+		          	<div class="col-md-4">
+		          		Boat
+		          	</div>
+		          	<div class="col-md-4">
+		          		Boat
+		          	</div>
+		          	<div class="col-md-4">
+		          		Boat
+		          	</div>
+		          	<div class="col-md-4">
+		          		Boat
+		          	</div>
+		          	<div class="col-md-4">
+		          		Boat
+		          	</div>
+		          	<div class="col-md-4">
+		          		Boat
+		          	</div>
+		          	<div class="col-md-4">
+		          		Boat
+		          	</div>
+		          	<div class="col-md-4">
+		          		Boat
+		          	</div>
+		          	<div class="col-md-4">
+		          		Boat
+		          	</div>
+		            
+		          </div>
+		        </li>
+
+		        <li><a href="#">Schedule Service</a></li>
+		        
+		        <!-- <li><a href="#">My Account</a></li> -->
+
+		        
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+		          	My Account</a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">Log In</a></li>
+		            <li><a href="#">Register</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">Service Providers</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		      <form class="navbar-form navbar-right" role="search">
+		        <div class="form-group">
+		          <input type="text" class="form-control" placeholder="Search">
+		        </div>
+		        <button type="submit" class="btn btn-default">
+		        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+		      </form>
+		      
+		    </div><!-- /.navbar-collapse -->
+		  </div>
+		</div>
+  </div><!-- /.container-fluid -->
+</nav>
 
 <div class="container-fluid" style="padding-left:0px;">
-	<div class='container head-bbva' id="header_bbva">
+	<div class='container'>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1 col-sm-12">
 				<div class="row">
 
-					<!-- Logo and title -->
-					<div class="col-xs-3">
-						<?php if ( get_theme_mod( 'bbva_logo' ) ) : ?>
-							<img class="img-responsive head-logo" alt="BBVA Logo" src="<?php echo esc_url( get_theme_mod( 'bbva_logo' ) ); ?>"/>
-						<?php else : ?>
-							<img class="img-responsive head-logo" alt="BBVA Logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/logoBBVA.png"/>
-						<?php endif; ?> 
-
-						
-					</div>
-
-					<!-- Menu -->
-					<div class="col-xs-9">
-						<div class="row">
-							<div class="col-xs-8">
-								<?php 
-									wp_nav_menu(array('theme_location' => 'header-menu','fallback_cb'=>'', 'menu_class' => 'head-menu')); 
-								?>
-							</div>
-							<div class="col-xs-4">
-
-								<?php
-
-									$menu_name = 'header-btn-menu';
-									if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])){
-
-										$menu = wp_get_nav_menu_object($locations[$menu_name]);
-
-										if($menu){
-											$menu_items = wp_get_nav_menu_items($menu->term_id);
-										}
-
-										//$menu_items = wp_get_nav_menu_items(array('menu'=>'Header Bar Menu'));
-									}
-									if($menu && $menu_items != false && count($menu_items)>0){ 
-										
-								?>
-
-								<div class="row head-btn-container">
-
-									<?php
-										/*if(count($menu_items)>2){
-											$menu_items = array_slice($menu_items, 0,2);
-										}*/
-										foreach ($menu_items as $key => $menu_item ) {
-											$title = $menu_item->title;
-											$url = $menu_item->url;
-											$icon = $menu_item->attr_title;
-											$class = $menu_item->classes;
-											
-											$hasClass = false;
-											for($i=0; $i<count($class); $i++){
-												switch ($class[$i]) {
-													case 'blue':
-													case 'azul':
-														$class[$i] = 'btn-primary';
-														$hasClass = true;
-														break;
-
-													case 'green':
-													case 'verde':
-														$class[$i] = 'btn-success';
-														$hasClass = true;
-														break;
-
-													case 'yellow':
-													case 'naranja':
-														$class[$i] = 'btn-warning';
-														$hasClass = true;
-														break;
-
-													case 'purple':
-													case 'magenta':
-														$class[$i] = 'btn-error';
-														$hasClass = true;
-														break;
-												}
-											}
-											if(is_array($class)){
-												$class = implode(" ", $class);
-											}
-											if($class == null || $class == "" || $hasClass == false){
-												$class = 'btn-primary';
-											};
-									?>
-
-											<a class="btn <?php echo $class; ?>" href="<?php echo $url; ?>" role="button">
-											<!-- <button class="btn btn-primary" type="button" href="<?php echo $url; ?>"> -->
-												<?php
-													if($icon != null && $icon != ""){
-														echo '<span class="glyphicon glyphicon-'.$icon.' icon-header-btn" aria-hidden="true"></span>';
-													}
-													echo $title; 
-												?>
-											</a>
-									<?php } ?>
-									
-								</div>
-
-								
-
-								<?php
-									}
-								?>
-
-								<div class="row head-title">
-										<?php if ( get_theme_mod('bbva_title') ) : ?>
-											<?php echo get_theme_mod('bbva_title'); ?>
-										<?php else : ?>
-											<?php the_title(); ?>
-										<?php endif; ?> 
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
-		<?php
-
-			$menu_name = 'header-bar-menu';
-			if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])){
-
-				$menu = wp_get_nav_menu_object($locations[$menu_name]);
-				if($menu){
-					$menu_items = wp_get_nav_menu_items($menu->term_id);
-				}
-				//$menu_items = wp_get_nav_menu_items(array('menu'=>'Header Bar Menu'));
-			}
-			if($menu && $menu_items != false && count($menu_items)>0){ 
-				
-		?>
-		<div class="row" style="margin-right:-30px;">
-			<div class="col-xs-12 head-bar">
-				<div class="row">
-					<div class="col-md-10 col-md-offset-1 col-sm-12">
-						<div class="bloque-nav">
-							<ul>
-								<li class="first inicio">
-									<a class="enlace" href="<?php echo site_url(); ?>">
-										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico-home.png" alt="Ir a home">
-									</a>
-								</li>
-
-
-								<?php
-									foreach ($menu_items as $key => $menu_item ) {
-										$title = $menu_item->title;
-										$url = $menu_item->url;
-										echo '<li><a class="enlace" href="'.$url.'">';
-										if($menu_item->attr_title != null && $menu_item->attr_title != ""){
-											echo '<span class="glyphicon glyphicon-'.$menu_item->attr_title.'" aria-hidden="true"></span>';
-										}
-										echo ' '.$title.'</a></li>';
-									}
-								?>
-
-								<!-- Ejemplo de elementos
-								<li class="">
-									<a class="enlace" href="">
-										<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
-										Nuevo enlace
-									</a>
-								</li>
-								<li class="">
-									<a class="enlace" href="">
-										<span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
-										Otro enlace
-									</a>
-								</li> -->
-
-							</ul>
-
-							<?php if ( get_theme_mod('bbva_search') ) : ?>
-								<div class="head-search">
-									<form method="get" id="search_form_header" action="<?php bloginfo('home'); ?>/">
-										<input 
-											name="s" 
-											id="s" 
-											class="textbox" 
-											type="text"
-											value="<?php echo wp_specialchars($s, 1); ?>" 
-										/>
-										<span class="glyphicon glyphicon-search search-icon" aria-hidden="true" onclick="sendSearch($(this))"></span>
-										<input type="submit" style="visibility: hidden; position: absolute;" />
-									</form>
-								</div>
-							<?php endif; ?> 
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-		<?php
-			}
-		?>
 	</div>

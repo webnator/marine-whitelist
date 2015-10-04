@@ -1,0 +1,159 @@
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,300,700);
+@import url('http://localhost:8888/marine-whitelist/wp-content/themes/marine-white-theme/css/wordpress_core.css');
+/*
+Color pallette http://www.paletton.com/#uid=63-0u0kUEJ7qGRPCSTJUutfTQmD
+*/
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+/* General styles */
+body {
+  font-family: 'Raleway', Helvetica, sans-serif;
+  color: #036acd;
+  font-size: 15px;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+a {
+  color: inherit;
+}
+/* Bootstrap modified styles */
+.navbar {
+  min-height: 40px;
+  max-height: 40px;
+}
+.navbar-header {
+  width: 100%;
+}
+.nav > li:first-of-type {
+  border-left: 0 none;
+}
+.nav > li {
+  margin-top: -1px;
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+}
+/* TODO Fix with gradient mixin */
+.navbar-form {
+  margin-top: 5px;
+}
+.navbar-form .form-control,
+.mobile-box .form-control {
+  height: 26px;
+  border-radius: 3px;
+}
+.navbar-form .btn,
+.mobile-box .btn {
+  padding-top: 4px;
+  margin-left: -10px;
+  border-radius: 0px 4px 4px 0px;
+}
+a.navbar-brand {
+  padding-top: 2px;
+  padding-bottom: 0px;
+  height: 30px;
+}
+.nav > li > a {
+  font-size: 0.9em;
+  height: 40px;
+  padding-bottom: 6px;
+  padding-top: 10px;
+}
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:hover {
+  background-color: #036acd;
+  color: #FFF;
+}
+.dropdown-menu > li > a {
+  color: #FFF;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .open > a:hover,
+.dropdown-menu.dropdown-categories div:hover {
+  background-color: #036acd;
+  color: #FFF;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
+  background-color: #036acd;
+  color: #FFF;
+}
+.dropdown-menu .divider {
+  background-color: #024e97;
+}
+.nav > li:hover {
+  border-right: 0px solid;
+}
+.navbar-nav > li > .dropdown-menu {
+  color: #fff;
+  margin-left: -1px;
+  background-color: #023c75;
+}
+.dropdown-menu {
+  background-clip: none;
+}
+/* Custom Styles */
+.close-box-btn {
+  background-color: #fff;
+  border-radius: 10px;
+  color: #555;
+  font-size: 0.6em;
+  height: 15px;
+  padding: 1px 6px 3px 5px;
+  position: absolute;
+  right: 13px;
+  top: 13px;
+  width: 15px;
+}
+.dropdown-menu.dropdown-categories {
+  left: -130px;
+  min-width: 600px;
+}
+.btn-header {
+  height: 30px;
+  margin-top: 4px;
+}
+.dropdown-menu.dropdown-categories div {
+  padding-bottom: 10px;
+  padding-top: 5px;
+  cursor: pointer;
+}
+.navbar-btn {
+  margin-top: 2px;
+}
+.mobile-box {
+  background-color: #eeeeee;
+  border-bottom: 1px solid #fff;
+  display: none;
+  left: 0;
+  padding: 7px;
+  position: absolute;
+  top: 38px;
+  width: 100%;
+  z-index: 1;
+  -webkit-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.3);
+}
+img.navbar-logo {
+  width: 90px;
+}
+.nav > li > a.list-logo {
+  padding: 2px;
+  margin-right: 30px;
+}
+.nav > li > a.list-logo:hover {
+  background-color: transparent;
+  padding: 2px;
+  margin-right: 30px;
+}

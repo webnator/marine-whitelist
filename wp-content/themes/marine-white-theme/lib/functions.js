@@ -1,33 +1,20 @@
 $(document).ready(function(){
-	$('#header_bbva').appear();
-
-	$('#header_bbva').on('disappear', function(event, $all_disappeared_elements) {
-    	$('#header_bbva').addClass("fixed-head-bbva");
-    	$('.head-bar').hide();
+    $('.dropdown').on('mouseover', function(){
+        $(this).children('.dropdown-menu').show();
+        $(this).addClass('active');
+    });
+    $('.dropdown').on('mouseout', function(){
+        $(this).children('.dropdown-menu').hide();
+        $(this).removeClass('active');
     });
 
-
-    $('#header_bbva').on('appear', function(event, $all_disappeared_elements) {
-    	if($(window).scrollTop() == 0){
-    		$('#header_bbva').removeClass("fixed-head-bbva");
-    		$('.head-bar').show();
-    	}
+    $('.header-toggler').on('click', function(){
+        $("#"+$(this).data('toggler-target')).slideToggle();
     });
+
+    $('.close-box-btn').on('click', function(){
+        $(this).parent().slideToggle();
+    });
+	
 });
 
-
-
-function lightenColor(col,amt) {
-    var num = parseInt(col,16);
-    var r = (num >> 16) + amt;
-    var b = ((num >> 8) & 0x00FF) + amt;
-    var g = (num & 0x0000FF) + amt;
-    var newColor = g | (b << 8) | (r << 16);
-    return newColor.toString(16);
-}
-
-function sendSearch(el){
-
-	var form = $(el).closest('form');
-	form.submit();
-}
