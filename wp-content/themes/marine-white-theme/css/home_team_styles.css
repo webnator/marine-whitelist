@@ -1,0 +1,49 @@
+.team-box{
+
+	margin: 5px;
+	margin-top: 15px;
+	padding: 5px;
+	text-align: center;
+	height: 350px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.team-box img{
+	padding: 10px;
+	max-height: 140px;
+}
+
+.team-box .line-separator div{
+	height: 2px;
+	opacity: 0.3;
+	width: 90%;
+	margin-top: 8px;
+}
+
+.team-box .team-title{
+	font-weight: bold;
+	font-size: 1.4em;
+	margin-top: 5px;
+	max-height: 40px;
+	line-height: 20px;
+	overflow: hidden;
+}
+
+.team-box .team-info{
+	font-weight: normal;
+	margin-top: 3px;
+	max-height: 100px;
+	line-height: 20px;
+	overflow: hidden;
+	text-align: justify;
+	padding: 5px;
+	color: #4d4d4d;
+}
+
+.team-box .team-link{
+	bottom: 10px;
+    cursor: pointer;
+    font-size: 2em;
+    position: absolute;
+    right: 25px;
+}

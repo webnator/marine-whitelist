@@ -1,0 +1,71 @@
+.team-title{
+	font-size: 2.5em;
+	font-weight: bold;
+	padding-left: 30px;
+    padding-top: 20px;
+	text-shadow: 2px 2px 3px rgba(150, 150, 150, 1);
+}
+
+.team-logo{
+	padding: 40px;
+}
+.team-logo img{
+	-webkit-box-shadow:  0px 0px 12px -3px rgba(0,0,0,0.75);
+	-moz-box-shadow:  0px 0px 12px -3px rgba(0,0,0,0.75);
+	box-shadow:  0px 0px 12px -3px rgba(0,0,0,0.75);
+}
+
+.team-desc-short{
+	font-size: 2em;
+    margin-left: 60px;
+    margin-top: 80px;
+    padding: 20px;
+    text-align: left;
+}
+
+.team-quote{
+	font-size: 1.3em;
+    margin-left: 60px;
+    margin-top: 30px;
+    padding: 20px;
+    text-align: right;
+    font-style: italic;
+}
+
+.team-desc-long{
+	font-size: 1.5em;
+    padding: 20px 20px 50px;
+    text-align: justify;
+}
+
+.team-profile{
+	padding:20px;
+	text-align: center;
+}
+
+.team-profile .profile-name{
+	font-size: 1.3em;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.team-profile .profile-pic img{
+	width: 45%;
+}
+.team-profile .profile-about{
+	text-align: justify;
+	width: 65%;
+	margin: 0px auto;
+	margin-top: 20px;
+	height: 120px;
+	line-height: 20px;
+	overflow: hidden;
+
+}
+.team-profile a:hover{
+	text-decoration: underline;
+}
+.line-separator div{
+	height: 3px;
+	background-color: rgba(255,255,255,0.7);
+	width: 60%;
+}
