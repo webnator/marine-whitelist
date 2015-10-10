@@ -9,7 +9,7 @@ function registerHeaderMenu() {
   register_nav_menu('footer-menu',__( 'Menu pie de pagina' ));
   register_nav_menu('header-bar-menu',__( 'Menu barra cabecera azul' ));
 }
-add_action( 'init', 'registerHeaderMenu' );
+//add_action( 'init', 'registerHeaderMenu' );
 
 
 //Add post type Developers
@@ -34,14 +34,14 @@ function createPostType() {
 function tags_for_pages() {
 	register_taxonomy_for_object_type('post_tag', 'page');
 }
-add_action('init', 'tags_for_pages');
+//add_action('init', 'tags_for_pages');
 
 // When displaying a tag archive, also show pages
 function tags_archives($wp_query) {
 	if ( $wp_query->get('tag') )
 		$wp_query->set('post_type', 'any');
 }
-add_action('pre_get_posts', 'tags_archives');
+//add_action('pre_get_posts', 'tags_archives');
 
 /**
  * Enqueue page scripts and styles
@@ -143,7 +143,7 @@ function registerCustomize($wp_customize) {
 
 
 }
-add_action('customize_register', 'registerCustomize');
+//add_action('customize_register', 'registerCustomize');
 
 
 /* Adding the widget area */
@@ -165,7 +165,7 @@ function registerWidgets(){
 		'id'	=> 'footer_menu_4'
 	));
 };
-add_action('widgets_init', 'registerWidgets');
+//add_action('widgets_init', 'registerWidgets');
 
 
 
