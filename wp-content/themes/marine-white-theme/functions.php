@@ -3,13 +3,14 @@
 
 
 //Add navigation menu support for the site
-function registerHeaderMenu() {
-  register_nav_menu('header-menu',__( 'Menu Cabecera' ));
-  register_nav_menu('header-btn-menu',__( 'Menu Botones Cabecera' ));
-  register_nav_menu('footer-menu',__( 'Menu pie de pagina' ));
-  register_nav_menu('header-bar-menu',__( 'Menu barra cabecera azul' ));
+function registerMenus() {
+  register_nav_menu('header-menu',__( 'Header Menu' ));
+  register_nav_menu('header-mobile-menu',__( 'Header Mobile Menu' ));
+  //register_nav_menu('header-btn-menu',__( 'Menu Botones Cabecera' ));
+  //register_nav_menu('footer-menu',__( 'Menu pie de pagina' ));
+  //register_nav_menu('header-bar-menu',__( 'Menu barra cabecera azul' ));
 }
-//add_action( 'init', 'registerHeaderMenu' );
+add_action( 'init', 'registerMenus' );
 
 
 //Add post type Developers
@@ -55,9 +56,6 @@ function loadScripts() {
 	wp_enqueue_script('jquery.appear.js', get_template_directory_uri() . '/lib/jquery.appear.js', array(), '1.0.0', true);
 	wp_enqueue_script('bootstrap.min.js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js', array(), '3.3.5', true);
 	wp_enqueue_script('functions.js', get_template_directory_uri() . '/lib/functions.js', array(), '1.0.0', true);
-	
-	/*wp_register_style( 'fontawesome', 'http:////maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' );
-	wp_enqueue_style( 'fontawesome');*/
 
 	wp_enqueue_style('general_style', get_template_directory_uri() . '/style.less');
 }
@@ -70,7 +68,7 @@ add_action( 'wp_enqueue_scripts', 'loadScripts' );
 
 function registerCustomize($wp_customize) {
 
-
+	/*
 	//Logo section
 	$wp_customize->add_section( 'bbva_logo_section' , array(
 		'title' => __( 'Logo', 'BBVA' ),
@@ -84,57 +82,58 @@ function registerCustomize($wp_customize) {
 		'section' => 'bbva_logo_section',
 		'settings' => 'bbva_logo',
 	)));
-
+	*/
 	//Title section
-	$wp_customize->add_section( 'bbva_title_section' , array(
-		'title' => __( 'Titulo', 'BBVA' ),
+	$wp_customize->add_section( 'title_section' , array(
+		'title' => __( 'Title', '' ),
 		'priority' => 30,
-		'description' => 'Cambiar el titulo de la página',
+		'description' => 'Change the page title',
 	));
 
-	$wp_customize->add_setting( 'bbva_page_title' );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'bbva_page_title', array(
-		'label' => __( 'Titulo de pagina', 'BBVA' ),
-		'section' => 'bbva_title_section',
-		'settings' => 'bbva_page_title',
+	$wp_customize->add_setting( 'page_title' );
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'page_title', array(
+		'label' => __( 'Titulo de pagina', '' ),
+		'section' => 'title_section',
+		'settings' => 'page_title',
 	)));
 
+	/*
 	$wp_customize->add_setting( 'bbva_title' );
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'bbva_title', array(
 		'label' => __( 'Titulo de cabecera', 'BBVA' ),
 		'section' => 'bbva_title_section',
 		'settings' => 'bbva_title',
-	)));
+	)));*/
 
 
 	//Search section
-	$wp_customize->add_section( 'bbva_search_section' , array(
-		'title' => __( 'Buscador', 'BBVA' ),
+	$wp_customize->add_section( 'search_section' , array(
+		'title' => __( 'Search', '' ),
 		'priority' => 30,
-		'description' => 'Habilita/Deshabilita el buscador',
+		'description' => 'Enables/Disables the search bar',
 	));
 
-	$wp_customize->add_setting( 'bbva_search' );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'bbva_search', array(
-		'label' => __( 'Buscador', 'BBVA' ),
-		'section' => 'bbva_search_section',
-		'settings' => 'bbva_search',
+	$wp_customize->add_setting( 'search_field' );
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'search_field', array(
+		'label' => __( 'Search field', '' ),
+		'section' => 'search_section',
+		'settings' => 'search_field',
 		'type' 	=> 'checkbox'
 	)));
 
 
 	//Footer section
-	$wp_customize->add_section( 'bbva_footer_section' , array(
-		'title' => __( 'Pie de página', 'BBVA' ),
+	$wp_customize->add_section( 'footer_section' , array(
+		'title' => __( 'Footer', '' ),
 		'priority' => 30,
-		'description' => 'Cambiar el pie de página',
+		'description' => 'Change the page footer',
 	));
 
-	$wp_customize->add_setting( 'bbva_footer' );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'bbva_footer', array(
-		'label' => __( 'Pie de página', 'BBVA' ),
-		'section' => 'bbva_footer_section',
-		'settings' => 'bbva_footer',
+	$wp_customize->add_setting( 'footer' );
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'footer', array(
+		'label' => __( 'Footer', '' ),
+		'section' => 'footer_section',
+		'settings' => 'footer',
 	)));
 
 
@@ -143,7 +142,7 @@ function registerCustomize($wp_customize) {
 
 
 }
-//add_action('customize_register', 'registerCustomize');
+add_action('customize_register', 'registerCustomize');
 
 
 /* Adding the widget area */

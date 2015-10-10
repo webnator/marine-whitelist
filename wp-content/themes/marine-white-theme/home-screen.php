@@ -5,22 +5,24 @@
 
 ?>
 
+<?php if(get_field('revolution_slider_id') != ''){ ?>
 <div class="row">
   <div class="col-md-12">
-    <?php putRevSlider("home-slider"); ?>
+    <?php putRevSlider(get_field('revolution_slider_id')); ?>
   </div>
 </div>
+<?php } ?>
 <div class="row split-row">
   <div class="col-md-4">
-    <i class="fa fa-check"></i> Always free
+    <i class="fa fa-check"></i> <?php the_field('header_text_1'); ?>
   </div>
 
   <div class="col-md-4">
-    <i class="fa fa-check"></i> We'll research for you
+    <i class="fa fa-check"></i> <?php the_field('header_text_2'); ?>
   </div>
 
   <div class="col-md-4">
-    <i class="fa fa-check"></i> Book online
+    <i class="fa fa-check"></i> <?php the_field('header_text_3'); ?>
   </div>
 </div>
 
@@ -129,8 +131,20 @@
   </div>
 </div>
 
+<div class="row tile">
+  <div class="col-md-10 col-md-offset-1">
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+      <?php the_content(); ?>
+
+      <?php endwhile; else : ?>
+        <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+      <?php endif; ?>
+  </div>
+</div>
 
 
+<?php if(get_field('show_reviews')){ ?>
 <div class="row tile">
   <div class="col-md-10 col-md-offset-1">
     <span class="big-title">Our latest review</span>
@@ -163,7 +177,7 @@
     </div>
   </div>
 </div>
-
+<?php } ?>
 
 
 <?php get_footer(); ?>

@@ -54,7 +54,9 @@
 
       <div class="row footer">
         <div class="col-xs-12">
-          © 2015 Marine White List, LLC. All rights reserved
+          <?php if ( get_theme_mod( 'footer' ) ) : ?>
+            <?php echo get_theme_mod('footer'); ?>
+          <?php endif; ?> 
         </div>
       </div>
 		</div>
