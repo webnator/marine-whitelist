@@ -25,7 +25,11 @@
 
               <?php 
 
+
               $menu_name = 'header-mobile-menu';
+              if ( is_user_logged_in() ) {
+                $menu_name = 'header-client-mobile-menu';
+              }
               if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])){
 
                 $menu = wp_get_nav_menu_object($locations[$menu_name]);
@@ -83,12 +87,15 @@
 
             <?php
 
-              $menu_name = 'header-mobile-menu';
+              /*$menu_name = 'header-mobile-menu';
+              if ( is_user_logged_in() ) {
+                $menu_name = 'header-client-mobile-menu';
+              }
               if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])){
 
                 $menu = wp_get_nav_menu_object($locations[$menu_name]);
                 $menu_items = wp_get_nav_menu_items($menu->term_id);
-              }
+              }*/
               if($menu_items != false && count($menu_items)>0){ 
                 for($i=0; $i<count($menu_items); $i++) {
                   $menu_item = $menu_items[$i];
@@ -113,7 +120,7 @@
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
 		      	<li class="">
-		      		<a href="#" class="list-logo">
+		      		<a href="<?php echo site_url(); ?>" class="list-logo">
 		      			<img 
 				      		class="navbar-logo"
 				      		src="<?php echo get_stylesheet_directory_uri(); ?>/img/MWL-Logo.png"/>
@@ -123,78 +130,142 @@
               <?php
 
                 $menu_name = 'header-menu';
+                if ( is_user_logged_in() ) {
+                  $menu_name = 'header-client-menu';
+                }
                 if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])){
 
                   $menu = wp_get_nav_menu_object($locations[$menu_name]);
                   $menu_items = wp_get_nav_menu_items($menu->term_id);
                 }
                 if($menu_items != false && count($menu_items)>0){ 
+
                   for($i=0; $i<count($menu_items); $i++) {
                     $menu_item = $menu_items[$i];
 
+
                     if(!$menu_item->menu_item_parent){
 
-                      $menu_children = [];
-                      for($y=($i+1); $y<count($menu_items); $y++){
-                        if($menu_items[$y]->menu_item_parent){
-                          array_push($menu_children, $menu_items[$y]);
-                        }else{
-                          break;
-                        }
-                      }
-                      $element = "";
-                      if(count($menu_children) <= 0){
-                        $element .= '<li class=""><a href="'.$menu_item->url.'">';
-                        $element .= $menu_item->title.'</a></li>';
-                      }else{
+                      $menu_from_post = false;
 
-                        $element .= '
-                          <li class="dropdown">
-                            <a href="'.$menu_item->url.'" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            '.$menu_item->title.'</a>';
+                      //If the menu item comes from a post type
+                      if($menu_item->description != ""){
+                        $desc = $menu_item->description;
+                        if (strpos($desc,'post_type') !== false && strpos($desc,':')) {
+                          $desc = explode(':', $desc);
                           
+                          if($desc[0] == "post_type"){
 
-                        if(count($menu_children) < 7){
-                          $element .= '<ul class="dropdown-menu">';
-                          for($y=0; $y<count($menu_children); $y++){
-                            $child = $menu_children[$y];
-                            if($child->title == 'split-line'){
-                              $element .= '<li role="separator" class="divider"></li>';
-                            }else{
-                              $element .= '<li><a href="'.$child->url.'">'.$child->title.'</a></li>';
-                            }
-                          }
-                          $element .= '</ul>';
-                        }else{
-                          $element .= '<div class="dropdown-menu dropdown-categories">';
+                            $menu_from_post = true;
 
-                          for($y=0; $y<count($menu_children); $y++){
-                            $child = $menu_children[$y];
-                            $img_url = '';
-                            if($child->thumbnail_id){
-                              $img_url = wp_get_attachment_image_src($child->thumbnail_id)[0];
-                            }
+                            $args = array('category__in' => array(get_cat_id($desc[1])), 'posts_per_page' => -1);
+                            $sub_menu = get_posts($args);
 
-                            $element .= '<div class="col-md-4"><a href="'.$child->url.'">';
-                            $count = 12;
-                            if($img_url != ''){
-                              $count = 9;
-                              $element .= '<div class="col-md-3" style="padding: 0px; padding-right: 10px;">';
-                              $element .= '<img class="img-responsive" src="'.$img_url.'"/>';
-                              $element .= '</div>';
-                            }
-                            $element .= '<div class="col-md-'.$count.'" style="padding: 0px; padding-top: 7px">';
-                            $element .= $child->title;
-                            $element .= '</div>';
+                            $element = '<li class="dropdown">
+                              <a href="'.$menu_item->url.'" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                              '.$menu_item->title.'</a>';
 
-                            $element .= '</a></div>';
-                          }
-                          $element .= '</div>';
                             
+                            $element .= '<div class="dropdown-menu dropdown-categories">';
+
+                            foreach ($sub_menu as $sm){
+                              $img_url = '';
+                              
+
+                              $icon = get_field('category_icon',$sm->ID);
+                              //var_dump($icon);
+                              if($icon['url']){
+                                $img_url = $icon['url'];
+                              }
+
+                              $element .= '<div class="col-md-4"><a href="'.$sm->url.'">';
+                              $count = 12;
+                              if($img_url != ''){
+                                $count = 9;
+                                $element .= '<div class="col-md-3" style="padding: 0px; padding-right: 10px;">';
+                                $element .= '<img class="img-responsive" src="'.$img_url.'"/>';
+                                $element .= '</div>';
+                              }
+                              $element .= '<div class="col-md-'.$count.'" style="padding: 0px; padding-top: 7px">';
+                              $element .= $sm->post_title;
+                              $element .= '</div>';
+
+                              $element .= '</a></div>';
+                            }
+                            $element .= '</div>';
+                            echo $element;
+
+                          }
+
+
                         }
-                        
                       }
-                      echo $element;
+
+                      //If the menu item doesn't come from a post type
+                      if(!$menu_from_post){
+                        $menu_children = [];
+                        for($y=($i+1); $y<count($menu_items); $y++){
+                          if($menu_items[$y]->menu_item_parent){
+                            array_push($menu_children, $menu_items[$y]);
+                          }else{
+                            break;
+                          }
+                        }
+                        $element = "";
+
+                        if(count($menu_children) <= 0){
+                          $element .= '<li class=""><a href="'.$menu_item->url.'">';
+                          $element .= $menu_item->title.'</a></li>';
+                        }else{
+
+                          $element .= '
+                            <li class="dropdown">
+                              <a href="'.$menu_item->url.'" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                              '.$menu_item->title.'</a>';
+                            
+
+                          if(count($menu_children) < 7){
+                            $element .= '<ul class="dropdown-menu">';
+                            for($y=0; $y<count($menu_children); $y++){
+                              $child = $menu_children[$y];
+                              if($child->title == 'split-line'){
+                                $element .= '<li role="separator" class="divider"></li>';
+                              }else{
+                                $element .= '<li><a href="'.$child->url.'">'.$child->title.'</a></li>';
+                              }
+                            }
+                            $element .= '</ul>';
+                          }else{
+                            $element .= '<div class="dropdown-menu dropdown-categories">';
+
+                            for($y=0; $y<count($menu_children); $y++){
+                              $child = $menu_children[$y];
+                              $img_url = '';
+                              if($child->thumbnail_id){
+                                $img_url = wp_get_attachment_image_src($child->thumbnail_id)[0];
+                              }
+
+                              $element .= '<div class="col-md-4"><a href="'.$child->url.'">';
+                              $count = 12;
+                              if($img_url != ''){
+                                $count = 9;
+                                $element .= '<div class="col-md-3" style="padding: 0px; padding-right: 10px;">';
+                                $element .= '<img class="img-responsive" src="'.$img_url.'"/>';
+                                $element .= '</div>';
+                              }
+                              $element .= '<div class="col-md-'.$count.'" style="padding: 0px; padding-top: 7px">';
+                              $element .= $child->title;
+                              $element .= '</div>';
+
+                              $element .= '</a></div>';
+                            }
+                            $element .= '</div>';
+                              
+                          }
+                          
+                        }
+                        echo $element;
+                      }
                     }
                   }
 

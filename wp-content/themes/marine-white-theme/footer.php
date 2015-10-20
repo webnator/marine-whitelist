@@ -2,15 +2,21 @@
         <div class="col-md-10 col-md-offset-1">
           <div class="row">
             <div class="col-md-4 foot-widget">
+
+              <?php dynamic_sidebar('footer_menu_1'); ?>
+
+              <!-- 
               <h1>Marine Florida</h1>
               198 West 21th Street, Suite 721 <br>
               New York NY 10010 <br>
               Email: marine@whitelist.com <br>
               Phone: +88 (0) 101 0000 000 <br>
-              Fax: +88 (0) 202 0000 001  <br>
+              Fax: +88 (0) 202 0000 001  <br> -->
             </div>
             <div class="col-md-4 foot-widget">
-              <ul>
+              
+              <?php dynamic_sidebar('footer_menu_2'); ?>
+              <!-- <ul>
                 <li>
                   <a href="">FAQ</a>
                 </li>
@@ -23,10 +29,13 @@
                 <li>
                   <a href="">Abour us</a>
                 </li>
-              </ul>
+              </ul>-->
               
             </div>
             <div class="col-md-4 foot-widget">
+
+              <?php dynamic_sidebar('footer_menu_3'); ?>
+              <!--
               <ul>
                 <li>
                   <a href="">
@@ -46,7 +55,7 @@
                     Google+
                   </a>
                 </li>
-              </ul>
+              </ul>-->
             </div>
           </div>
         </div>

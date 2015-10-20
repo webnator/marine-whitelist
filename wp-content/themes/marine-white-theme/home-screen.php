@@ -36,92 +36,46 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row ">
       
-      <div class="col-md-3 col-xs-6">
-        <div class="row">
-          <div class="col-xs-4">
-            <img 
-              class="img-responsive"
-              src="http://marinewhitelist.com/wp-content/uploads/2015/09/electrical.png"/>
-          </div>
-          <div class="col-xs-8 cat-title">
-            Charters
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-xs-6">
-        <div class="row">
-          <div class="col-xs-4">
-            <img 
-              class="img-responsive"
-              src="http://marinewhitelist.com/wp-content/uploads/2015/09/electrical.png"/>
-          </div>
-          <div class="col-xs-8 cat-title">
-            Charters
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-xs-6">
-        <div class="row">
-          <div class="col-xs-4">
-            <img 
-              class="img-responsive"
-              src="http://marinewhitelist.com/wp-content/uploads/2015/09/electrical.png"/>
-          </div>
-          <div class="col-xs-8 cat-title">
-            Charters
+
+      <?php
+        $args = array('category__in' => array(get_cat_id('Service Categories')), 'posts_per_page' => -1);
+        $sub_menu = get_posts($args);
+
+        foreach ($sub_menu as $sm){
+          $img_url = '';
+          $icon = get_field('category_icon',$sm->ID);
+          //var_dump($icon);
+          if($icon['url']){
+            $img_url = $icon['url'];
+          }
+
+      ?>
+        <div class="col-md-3 col-xs-6 col-service">
+          <div class="row">
+            <div class="col-xs-4">
+              <?php 
+                if($img_url != ''){
+              ?>
+              <img 
+                class="img-responsive"
+                src="<?php echo $img_url; ?>"/>
+
+              <?php
+                }
+              ?>
+            </div>
+            <div class="col-xs-8 cat-title">
+              <?php echo $sm->post_title; ?>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3 col-xs-6">
-        <div class="row">
-          <div class="col-xs-4">
-            <img 
-              class="img-responsive"
-              src="http://marinewhitelist.com/wp-content/uploads/2015/09/electrical.png"/>
-          </div>
-          <div class="col-xs-8 cat-title">
-            Charters
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-xs-6">
-        <div class="row">
-          <div class="col-xs-4">
-            <img 
-              class="img-responsive"
-              src="http://marinewhitelist.com/wp-content/uploads/2015/09/electrical.png"/>
-          </div>
-          <div class="col-xs-8 cat-title">
-            Charters
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-xs-6">
-        <div class="row">
-          <div class="col-xs-4">
-            <img 
-              class="img-responsive"
-              src="http://marinewhitelist.com/wp-content/uploads/2015/09/electrical.png"/>
-          </div>
-          <div class="col-xs-8 cat-title">
-            Charters
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-xs-6">
-        <div class="row">
-          <div class="col-xs-4">
-            <img 
-              class="img-responsive"
-              src="http://marinewhitelist.com/wp-content/uploads/2015/09/electrical.png"/>
-          </div>
-          <div class="col-xs-8 cat-title">
-            Charters
-          </div>
-        </div>
-      </div>
+
+      <?php
+        }
+      ?>
+
 
       
 
@@ -135,7 +89,16 @@
   <div class="col-md-10 col-md-offset-1">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-      <?php the_content(); ?>
+      <?php 
+
+        $content = get_the_content(); 
+
+        $split_html = "</div></div><div class='row tile'><div class='col-md-10 col-md-offset-1'>";
+
+        $content = str_replace("--SectionEnd--", $split_html, $content);
+        
+        echo $content;
+      ?>
 
       <?php endwhile; else : ?>
         <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
@@ -145,7 +108,7 @@
 
 
 <?php if(get_field('show_reviews')){ ?>
-<div class="row tile">
+<div class="row tile green-tile">
   <div class="col-md-10 col-md-offset-1">
     <span class="big-title">Our latest review</span>
     <hr>

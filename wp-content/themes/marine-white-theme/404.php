@@ -1,19 +1,26 @@
 <?php
-get_header(); 
+	
+	get_header(); 
 
 ?>
-		
+	
+	<div class="row">
+		<div class="col-xs-12 construction-col full-image-col">
+			
+		</div>
+	</div>
 
 	<div class='container-fluid page-container'>
+
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1 col-xs-12">
 		
 				<div class="row">
-					<div class="col-xs-4">
-						<img class="img-responsive" src="<?php echo get_template_directory_uri()."/img/hombre_sentado_movil.jpg" ?>"/>
-					</div>
-					<div class="col-xs-6 error-text">
-						<h2>Lo sentimos pero la página que buscas no existe</h2>
+					
+					<div class="col-xs-12 error-text">
+						<h2>Sorry, but the page you're looking for doesn't exist.
+							The site is still under construction and maintenance.</h2>
+						If the error persists, please contact the administrator<br/><br/>
 					</div>
 				</div>
 				

@@ -1,0 +1,133 @@
+<div class="row" style="margin-top:10px; margin-bottom:10px;">
+  <div class="col-md-10 col-md-offset-1">
+    
+    <div class="row">
+
+      <div class="col-md-8">
+
+
+        <uib-tabset>
+
+          <uib-tab>
+            <uib-tab-heading>
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              Account details
+            </uib-tab-heading>
+            <div class="panel panel-default panel-no-top">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <h2>Welcome, {{ user.meta.contact_name.value }}</h2>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-12 sub-title">
+                    <h3>Account details</h3>
+                  </div>
+                </div>
+
+                <p class="bg-info" ng-show="user.user.data.active === false">
+                  You haven't been activated by the administrator yet. This usually takes around 24-48 hours.
+                </p>
+
+                <p class="bg-info" ng-show="dueType == 'warn'">
+                  You're near your due date for payment. Please click on the right panel to submit your payment, or contact the administrator.
+                </p>
+
+                <p class="bg-info" ng-show="dueType == 'debt' && !isSuspended">
+                  Your payment date is due. Please click on the right panel to submit your payment, or contact the administrator.
+                </p>
+
+                <p class="bg-danger" ng-show="isSuspended">
+                  Your subscription payment is due. Your account has been suspended temporarily. Please click on the right panel to submit your payment, or contact the administrator.
+                </p>
+
+                <div class="row" ng-if="user.user.data.active && !isSuspended">
+                  <div class="col-xs-12">
+                    <form class="form-horizontal" id="account_details">
+
+                      <div class="form-group" ng-repeat="field in user.meta">
+                        <label class="col-sm-3 control-label">{{field.label}}</label>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" placeholder="" ng-model="field.value" readonly>
+                        </div>
+                      </div>
+
+                     
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </uib-tab>
+
+          <uib-tab ng-if="user.user.data.active && !isSuspended" disable="1==1">
+            <uib-tab-heading>
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              Profile
+            </uib-tab-heading>
+
+          </uib-tab>
+
+          <uib-tab ng-if="user.user.data.active && !isSuspended" disable="1==1">
+            <uib-tab-heading>
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              Notifications
+              <span class="label label-primary">0</span>
+            </uib-tab-heading>
+
+          </uib-tab>
+          
+        </uib-tabset>
+
+      </div>
+
+      <div class="col-md-3 col-md-offset-1">
+        <div class="well">
+          <div class="row">
+            <div class="col-xs-12">
+              Your current plan:
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <h3>{{user.payment.plan_title}}</h3>
+            </div>
+          </div>
+
+          <div class="row" ng-if="user.user.data.active">
+            <div class="col-xs-12">
+              <strong>{{user.payment.pay_amount}}$ / month</strong>
+            </div>
+          </div>
+
+          <div class="row" ng-if="user.user.data.active">
+            <div class="col-xs-12">
+              <span ng-class="{'good': 'green-msg', 'warn': 'yellow-msg', 'debt': 'red-msg'}[dueType]">Due: {{parseDate(user.payment.due_date)}}</span>
+            </div>
+          </div>
+
+          <div  class="row" ng-if="user.user.data.active">
+            <div class="col-xs-12" style="border-top:1px solid rgba(0,0,0,0.1); padding-top:7px">
+
+              <form class="paypal" action="{{ concatenateGlobal('/php_functions/paypal_payment.php') }}" method="post" id="paypal_form" target="_blank">
+                <input type="hidden" name="cmd" value="_xclick" />
+                <input type="hidden" name="no_note" value="1" />
+                <input type="hidden" name="lc" value="US" />
+                <input type="hidden" name="currency_code" value="USD" />
+                <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
+                <input type="hidden" name="first_name" ng-model="user.meta.contact_name.value" />
+                <input type="hidden" name="payer_email" ng-model="user.user.data.user_email" />
+                <input type="hidden" name="item_number" ng-model="user.payment.plan_id" / >
+                <input type="submit" class="btn btn-primary" value="Pay"/>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
